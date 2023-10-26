@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<view class="container container-wallet-detail">
+
+  <view class="wallet-detail-item weui-form-preview" wx:for="{{ recordsList }}" wx:key="index" wx:if="{{ recordsList.length > 0 }}">
+    <view aria-labelledby="p1 js_a11y_comma p2 js_a11y_comma p3" class="weui-form-preview__bd" aria-role="option">
+      <view id="p1" class="weui-form-preview__item">
+        <label class="weui-form-preview__label">业务名称</label>
+        <text class="weui-form-preview__value">{{ item.name }}</text>
+      </view>
+      <view id="p2" class="weui-form-preview__item">
+        <label class="weui-form-preview__label">金额</label>
+        <text class="weui-form-preview__value">￥{{ item.amt }}</text>
+      </view>
+      <view id="p3" class="weui-form-preview__item">
+        <label class="weui-form-preview__label">发生时间</label>
+        <text class="weui-form-preview__value">{{ item.createTime }}</text>
+      </view>
+      <view id="p4" class="weui-form-preview__item">
+        <label class="weui-form-preview__label">备注</label>
+        <text class="weui-form-preview__value">{{ item.remark }}</text>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="icon-box empty-block" wx:if="{{ recordsList.length <= 0 }}">
+    <icon class="icon-box-img" type="info" size="24"></icon>
+    <view class="icon-box-ctn">
+      <view class="icon-box-desc">暂无数据</view>
+    </view>
+  </view>
+
+</view>

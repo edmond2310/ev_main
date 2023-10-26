@@ -1,0 +1,173 @@
+<!--index.wxml-->
+<view class="container container-index">
+  <view class="ev-index__input">
+    <view class="section-title title">站点编号</view>
+    <view class="scan" bindtap="scanCode">扫描输入</view>
+  </view>
+
+  <div class="ev-index__inputcode bg-white">
+    <view class='input-main'>
+      <view class='input-row' catchtap='getFocus'>
+        <view class='pwd-item {{focusIdx==i?"active":""}}' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+          <text wx:if='{{pwdVal.length>i}}'>{{pwdValText[i]}}</text>
+        </view>
+      </view>
+      <input class='input-control' type='number' focus='{{payFocus}}' bindinput='inputPwd' maxlength='6' value="{{pwdVal}}" bindblur="inputBlur"/>
+    </view>
+  </div>
+
+  <view class="ev-index__points">
+    <view class="title-wrap">
+      <view class="text">选择充电口</view>
+    </view>
+
+    <view class="bg-white port-wrapper">
+      <view class="row port-row" wx:for="{{ devicesList }}" wx:key="index">
+        <!-- 1: 空闲 -->
+        <view class="number {{ item.status === 1 ? 'active' : '' }}"
+          wx:if="{{item.status === 1}}">{{ item.positionNum }}</view>
+        <!-- 2: 繁忙 -->
+        <view class="number {{ item.status === 2 ? 'busy' : '' }}"
+          wx:if="{{item.status === 2}}">{{ item.positionNum }}</view>
+        <!-- 3: 下线 -->
+        <view class="number {{ item.status === 3 || item.status === null ? 'offline' : '' }}"
+          wx:if="{{ item.status === 3 || item.status === null }}">{{ item.positionNum }}</view>
+        <view
+          wx:for="{{ item.ports }}"
+          wx:for-item="portItem"
+          wx:key="index"
+          class="item {{ positionNum === item.positionNum && portNum === portItem.portNum ? 'checked' : '' }}"
+          data-portnum="{{ portItem.portNum }}"
+          data-positionnum="{{ item.positionNum }}"
+          data-deviceid="{{ item.deviceId }}"
+          data-positionstatus="{{ item.status }}"
+          data-status="{{ portItem.status }}"
+          bindtap="selectPort"
+        >
+          <view class="dot {{ portItem.portNum === 3 ? 'busy' : '' }}" wx:if="{{ portItem.status === 1 }}">
+            {{ portItem.portNum }}
+          </view>
+          <view
+            class="dot {{ portItem.status === 2 ? 'busy' : '' }}"
+            wx:if="{{ portItem.status === 2 }}"
+          >
+            {{ portItem.portNum }}
+          </view>
+          <view
+            class="dot {{ portItem.status === 3 ? 'offline' : '' }}"
+            wx:if="{{ portItem.status === 3 }}"
+          >
+            {{ portItem.portNum }}
+          </view>
+          <!-- <view class="text" wx:if="{{ portItem.status === 1 }}">{{
+            portNum === portItem.portNum ? '已选择' : portItem.portNum + '-空闲'
+          }}</view> -->
+          <view class="text" wx:if="{{ portItem.status === 1 }}">空闲</view>
+          <view
+            class="text {{ portItem.status === 2 ? 'busy' : '' }}"
+            wx:if="{{ portItem.status === 2 }}"
+            >占用</view
+          >
+          <view
+            class="text {{ portItem.status === 3 ? 'offline' : '' }}"
+            wx:if="{{ portItem.status === 3 }}"
+            >下线</view
+          >
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="ev-index__select bg-white">
+    <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+      <view class="weui-cell__hd">
+        <label class="weui-label" style="width: 5em">收费标准</label>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-select" bindtap="togglePricesDialog">点击查看...</view>
+      </view>
+    </view>
+
+    <view
+      class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after"
+    >
+      <view class="weui-cell__hd">
+        <label class="weui-label" style="width: 5em">充电时长</label>
+      </view>
+      <view class="weui-cell__bd">
+        <picker
+          aria-role="combobox"
+          bindchange="bindPickerAbortModeChange"
+          range="{{ abortModeArray }}"
+          range-key="value"
+        >
+          <view class="weui-select">{{ abortModeArray[abortMode].value }}</view>
+        </picker>
+      </view>
+    </view>
+
+    <view
+      class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after"
+    >
+      <view class="weui-cell__hd">
+        <label class="weui-label" style="width: 5em">支付方式</label>
+      </view>
+      <view class="weui-cell__bd">
+        <picker
+          aria-role="combobox"
+          bindchange="bindPickerPaymentChange"
+          range="{{ paymentTypeArray }}"
+          range-key="value"
+        >
+          <view class="weui-select">{{
+            paymentTypeArray[paymentType].value
+          }}</view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view style="padding: 10rpx;">注：充电器不能超过1200瓦</view>
+  <view style="padding: 10rpx;">客服电话：400-886-4009</view>
+  <view class="ev-index__submit">
+    <button type="primary" bindtap="submit">开始充电</button>
+  </view>
+  <view>
+    <!--BEGIN dialog1-->
+    <div wx:if="{{ showPricesDialog }}">
+      <div class="weui-mask"></div>
+      <div class="weui-dialog">
+        <div class="weui-dialog__hd">
+          <strong class="weui-dialog__title">收费标准</strong>
+        </div>
+        <div class="weui-dialog__bd">
+          <div class="prices-table">
+            <div class="col-a">
+              <div class="title">功率P（W）</div>
+              <div wx:for="{{prices}}" wx:key="index">
+                {{item.minPower}}
+                <text decode="true">&lt;</text> P
+                <text decode="true">&lt;=</text> {{item.maxPower}}
+              </div>
+            </div>
+            <div class="col-b">
+              <div class="title">收费（元/小时）</div>
+              <div wx:for="{{prices}}" wx:key="index">{{item.price}}元/小时</div>
+            </div>
+          </div>
+          <div></div>
+        </div>
+        <div class="weui-dialog__ft">
+          <a
+            role="button"
+            href="javascript:"
+            class="weui-dialog__btn weui-dialog__btn_primary"
+            bindtap="togglePricesDialog"
+            >我知道了
+          </a>
+        </div>
+      </div>
+    </div>
+    <!--END dialog1-->
+  </view>
+</view>

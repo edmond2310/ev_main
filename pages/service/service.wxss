@@ -1,0 +1,32 @@
+page {
+  background-color: #f8f8f8;
+  font-size: 14px;
+  color: #555555;
+}
+
+.ev-me__avatar,
+.ev-me__wallet {
+  margin-bottom: 16px;
+}
+
+.ev-me__wallet .weui-cell__bd {
+  text-align: right;
+  padding-right: 8px;
+}
+
+.ev-me__avatar .weui-media-box__thumb {
+  border-radius: 50%;
+}
+
+.ev-me__select .weui-select {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.log-list {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+}
+.log-item {
+  margin: 10rpx;
+}

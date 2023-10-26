@@ -1,0 +1,60 @@
+<!--logs.wxml-->
+<view class="container container-site">
+  <!-- <view class="ev-site__menus bg-white" wx:if="{{ stationList.length > 0 }}"> -->
+
+  <!-- <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+      <view class="weui-cell__hd">
+        <label class="weui-label" style="width: 5em">收费管理</label>
+      </view>
+      <view class="weui-cell__bd">
+        <navigator url="/pages/charge/charge">
+          <view class="weui-select"></view>
+        </navigator>
+      </view>
+    </view> -->
+  <!-- </view> -->
+
+  <view class="ev-site__lists" style="margin-top: 30rpx;" wx:if="{{ statisticsList.length > 0 }}">
+    <!-- <view class="title-wrap pdt-16">
+      <view class="text">站点归类</view>
+    </view> -->
+
+    <view class="item bg-white" wx:for="{{ statisticsList }}" wx:key="index">
+      <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+        <view class="weui-cell__hd">
+          <view class="label">
+            <view>收益月份：</view>
+            <view>{{ item.name }}</view>
+          </view>
+          <view class="label">
+            <view>设备数量：</view>
+            <view>{{ item.deviceCount }}</view>
+          </view>
+          <view class="label">
+            <view>订单数量：</view>
+            <view>{{ item.orderCount }}</view>
+          </view>
+          <view class="label">
+            <view>充电金额：</view>
+            <view>{{ item.totalFee }}元</view>
+          </view>
+          <view class="label">
+            <view>耗电度数：</view>
+            <view>{{ item.totalPower }}度</view>
+          </view>
+          <!-- <view class="label">
+              <view>站点数量：</view>
+              <view>{{ item.name }}</view>
+            </view> -->
+          <!-- <view class="label">
+              <view>设备数量：</view>
+              <view>{{ item.devices.length }}个</view>
+            </view> -->
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-select"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,40 @@
+<!--about.wxml-->
+<view class="container container-bind">
+  <view class="title-wrap pdt-16">
+    <view class="text">站点归类</view>
+  </view>
+  <view class="bg-white" style="margin-top: 8px;">
+    <view class="no-arrow weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+      <view class="weui-cell__hd">
+        <label class="weui-label" style="width: 5em"> 选定类别 </label>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-select">
+          <picker bindchange="bindPickerChange" range-key="name" value="{{selectedIndex}}" range="{{categoryList}}">
+            <view class="picker">
+              {{categoryList[selectedIndex].name}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="bg-white" style="margin-top: 8px;" wx:if="{{!categoryList[selectedIndex].id}}">
+    <view class="no-arrow weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+      <view class="weui-cell__hd">
+        <label class="weui-label" style="width: 5em"> 新类别名称 </label>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-select">
+          <input type="text" placeholder="请输入新类别名称" model:value="{{ categoryName }}" />
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="ev-site__new">
+    <button type="primary" bindtap="editCategory">
+      保存
+    </button>
+  </view>
+</view>

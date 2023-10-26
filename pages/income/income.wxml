@@ -1,0 +1,89 @@
+<!--logs.wxml-->
+<view class="container container-income">
+  <!-- <view class="ev-income__filter">
+    <view class="ev-income__select bg-white">
+      <view class="weui-cell_select-after">
+        <view class="weui-cell__bd">
+          <picker
+            mode="date"
+            model:value="{{ beginDate }}"
+            start="2015-09-01"
+            end="2017-09-01"
+            bindchange="bindBeginDateChange"
+          >
+            <view class="weui-select">{{
+              beginDate ? beginDate : '选择开始时间'
+            }}</view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="weui-cell_select-after">
+        <view class="weui-select">-</view>
+      </view>
+
+      <view class="weui-cell_select-after">
+        <view class="weui-cell__bd">
+          <picker
+            mode="date"
+            model:value="{{ endDate }}"
+            start="2015-09-01"
+            end="2017-09-01"
+            bindchange="bindEndDateChange"
+          >
+            <view class="weui-select">{{
+              endDate ? endDate : '选择结束时间'
+            }}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view> -->
+
+  <view class="ev-income__lists">
+    <view class="item bg-white" wx:for="{{ incomeList }}" wx:key="index">
+      <view class="weui-cell__hd">
+        <view class="label">
+          <view class="text">充电站点</view>
+          <view class="divider">:</view>
+          <view class="value">{{ item.stationCodeNum }}</view>
+        </view>
+        <view class="label">
+          <view class="text">记账时间</view>
+          <view class="divider">:</view>
+          <view class="value">{{ item.createTime }}</view>
+        </view>
+        <view class="label">
+          <view class="text">充电时长</view>
+          <view class="divider">:</view>
+          <view class="value">{{ item.howLong }}小时</view>
+        </view>
+        <view class="label">
+          <view class="text">充电功率</view>
+          <view class="divider">:</view>
+          <view class="value">{{ item.usedPower }}瓦</view>
+        </view>
+        <view class="label">
+          <view class="text">消耗电量</view>
+          <view class="divider">:</view>
+          <view class="value">{{ item.usedPower2 }}度</view>
+        </view>
+        <view class="label">
+          <view class="text">收费</view>
+          <view class="divider">:</view>
+          <view class="value">{{ item.orderAmt }}元</view>
+        </view>
+        <view class="label">
+          <view class="text">其它费用</view>
+          <view class="divider">:</view>
+          <view class="value">{{ item.commission }}元</view>
+        </view>
+        <view class="label">
+          <view class="text">收入</view>
+          <view class="divider">:</view>
+          <view class="value">{{ item.amt }}元</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

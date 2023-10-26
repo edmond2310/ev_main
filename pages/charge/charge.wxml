@@ -1,0 +1,69 @@
+<!--logs.wxml-->
+<view class="container container-charge">
+  <!-- <view class="ev-charge__int bg-white">
+    <view class="no-arrow weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+      <view class="weui-cell__hd">
+        <label class="weui-label" style="width: 5em">设备成本</label>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-select">{{ deviceCost }}</view>
+      </view>
+    </view>
+  </view> -->
+
+  <view class="title-wrap">
+    <view class="text">收费标准</view>
+  </view>
+
+  <view class="ev-charge__select bg-white">
+    <view class="no-arrow weui-cell weui-cell_active weui-cell_select weui-cell_select-after"
+      wx:for="{{ pricesList }}"
+      wx:key="index"
+    >
+      <view class="weui-cell__hd">
+        <label class="weui-label" style="width: 8em">
+          <text decode="true">{{ item.minPower }}W&lt;P&lt;=</text>{{ item.maxPower }}W
+        </label>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-select">
+          <input type="text" model:value="{{ item.price }}" data-index="{{ index }}" bindinput="bindInput"/>元/时
+          <!-- <text>{{ item.price }} 元/时</text> -->
+        </view>
+      </view>
+    </view>
+
+    <!-- <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+      <view class="weui-cell__hd">
+        <label class="weui-label" style="width: 5em">
+          <text decode="true">&lt;</text>150W
+        </label>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-select">0.6元/时</view>
+      </view>
+    </view> -->
+
+    <!-- <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+      <view class="weui-cell__hd">
+        <label class="weui-label" style="width: 5em"
+          ><text decode="true">&lt;</text>300W</label
+        >
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-select">1元/时</view>
+      </view>
+    </view> -->
+  </view>
+
+  <!-- <view class="ev-charge__desc bg-white">
+    <view class="title">收费说明</view>
+    <view
+      >设备成本：每绑定一个设备增加300元，大于0时平台抽取30%作为费用，同时设备成本逐渐减少，该成本为0时抽取费用减少为20%</view
+    >
+  </view> -->
+
+  <div class="ev-charge__submit">
+    <button type="primary" bindtap="changePrices">提交</button>
+  </div>
+</view>

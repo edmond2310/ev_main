@@ -1,0 +1,78 @@
+page {
+  background-color: #f8f8f8;
+  font-size: 14px;
+  color: #555555;
+}
+
+.container-bind .weui-select {
+  text-align: right;
+  color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.no-arrow.weui-cell_select .weui-cell__bd::after {
+  display: none;
+}
+
+.ev-bind__points {
+  font-size: 16px;
+}
+
+.ev-bind__points .point {
+  background: #ffffff;
+  padding: 16px;
+  display: flex;
+  margin-bottom: 8px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.ev-bind__points .point .title {
+  font-size: 48px;
+  width: 64px;
+  min-width: 64px;
+  color: #70bd31;
+}
+
+.ev-bind__points .point .meta {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.ev-bind__points .point .meta .name,
+.ev-bind__points .point .meta .number,
+.ev-bind__points .point .meta .state {
+  display: flex;
+  /* padding: 2px 0; */
+}
+
+.ev-bind__points .key {
+  width: 4.2em;
+  text-align: justify;
+  text-align-last: justify;
+}
+
+.ev-bind__points .divider {
+  padding: 0 8px 0 2px;
+}
+
+.ev-bind__points .scan {
+  flex: 1;
+  text-align: right;
+  color: #70bd31;
+}
+
+.ev-bind__submit {
+  margin-top: 24px;
+}
+
+.ev-bind__menus {
+  margin-bottom: 16px;
+}
+
+.qrcode {
+  width: 100%;
+}

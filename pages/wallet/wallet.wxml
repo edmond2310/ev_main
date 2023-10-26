@@ -1,0 +1,12 @@
+<!--logs.wxml-->
+<view class="container container-wallet">
+  <view class="ev-wallet__hero">
+    <view class="title">我的余额：</view>
+    <view class="sum"><span>￥</span>{{ balance }}</view>
+    <view class="more" bindtap="viewDetail">钱包明细</view>
+  </view>
+
+  <view class="ev-wallet__submit">
+    <button type="primary" bindtap="viewPlayTab">去充值</button>
+  </view>
+</view>

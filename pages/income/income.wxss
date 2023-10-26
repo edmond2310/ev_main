@@ -1,0 +1,36 @@
+page {
+  background-color: #f8f8f8;
+  font-size: 14px;
+  color: #555555;
+}
+
+.ev-income__lists {
+  margin-top: 16px;
+}
+
+.ev-income__lists .item {
+  font-size: 16px;
+  color: black;
+  margin-bottom: 16px;
+  padding: 10px 16px;
+}
+
+.ev-income__lists .item .label {
+  display: flex;
+  /* padding: 2px 0; */
+}
+
+.ev-income__lists .item .label .divider {
+  margin: 0 16px 0 2px;
+}
+
+.ev-income__lists .item .label .text {
+  width: 4.2em;
+  text-align: justify;
+  text-align-last: justify;
+}
+
+.ev-income__select {
+  display: flex;
+  justify-content: space-between;
+}

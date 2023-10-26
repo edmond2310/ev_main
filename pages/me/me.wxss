@@ -1,0 +1,67 @@
+page {
+  background-color: #f8f8f8;
+  font-size: 14px;
+  color: #555555;
+}
+
+.ev-me__avatar {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin-top: 16px;
+}
+
+.ev-me__avatar,
+.ev-me__wallet {
+  margin-bottom: 16px;
+}
+
+.ev-me__wallet .weui-cell__bd {
+  text-align: right;
+  padding-right: 8px;
+}
+
+.weui-media-box__hd {
+  display: flex;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+
+.weui-media-box__hd image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #f9f9f9;
+  background-color: #70bd31;
+  margin-right: 16px;
+  background: url('https://thirdwx.qlogo.cn/mmopen/vi_32/POgEwh4mIHO4nibH0KlMECNjjGxQUq24ZEaGT4poC6icRiccVGKSyXwibcPq4BWmiaIGuG1icwxaQX6grC9VemZoJ8rg/132');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.avatar-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+  border: 1px solid #f9f9f9;
+  background-color: #70bd31;
+  margin-right: 16px;
+}
+
+.ev-me__avatar .weui-media-box__thumb {
+  border-radius: 50%;
+}
+
+.ev-me__select .weui-select {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.log-list {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+}
+
+.log-item {
+  margin: 10rpx;
+}

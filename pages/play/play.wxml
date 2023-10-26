@@ -1,0 +1,63 @@
+<!--index.wxml-->
+<view class="container container-play">
+  <view class="ev-play__type bg-white hide">
+    <view class="credit {{ payType == 1 ? 'active' : '' }}" data-type="1" bindtap="pickPayType">先充后付</view>
+    <view class="charge {{ payType == 2 ? 'active' : '' }}" data-type="2" bindtap="pickPayType">
+      充值按次付费
+    </view>
+  </view>
+
+  <view class="credit-ctx bg-white" wx:if="{{ payType == 1 }}">
+    <view class="title">“先充电，后付费”服务</view>
+    <view class="meta">
+      <image class="wxplay-logo" src="/images/wx.png" alt="" />
+      <view>微信支付分要求400分以上</view>
+    </view>
+    <view class="act" bindtap="bindWechatPay">
+      <view class="sub">绑定当前账号</view>
+      <view class="main">开通微信支付分 先充后付</view>
+    </view>
+
+    <view class="intro">
+      <view class="title">服务介绍</view>
+      <view class="ext">使用微信支付分即可享“先充电，后付费”权益，充电完成后自动扣费，享受安全便捷的支付体验。</view>
+    </view>
+  </view>
+
+  <view class="credit-ctx--binded bg-white" wx:if="{{ payType == 1 }}">
+    <!-- <view class="text">已开通微信支付分！</view> -->
+    <view class="act">
+      <image class="logo" src="/images/wechat.png" alt="" />
+      <view>已绑定当前微信账号</view>
+      <view class="unbind" bindtap="unbindWechatPay">解绑</view>
+    </view>
+  </view>
+
+  <view class="charge-ctx bg-white" wx:if="{{ payType == 2 }}">
+    <view class="text">充值金额</view>
+    <view>
+      <view class="amount">
+        <view class="item {{ payActive == 8 ? 'active' : ''}}" bindtap="selectPayAmt" data-amt="8">8元</view>
+        <view class="item {{ payActive == 10 ? 'active' : ''}}" bindtap="selectPayAmt" data-amt="10">10元</view>
+        <view class="item {{ payActive == 20 ? 'active' : ''}}" bindtap="selectPayAmt" data-amt="20">20元</view>
+      </view>
+      <view class="amount">
+        <view class="item {{ payActive == 50 ? 'active' : ''}}" bindtap="selectPayAmt" data-amt="50">50元</view>
+        <view class="item {{ payActive == 100 ? 'active' : ''}}" bindtap="selectPayAmt" data-amt="100">100元</view>
+        <input class="item {{ payActive == 0 ? 'active' : ''}}" type="digit" placeholder="其它金额"
+          bindinput="handlePayAmt" input="{{ payAmt }}"
+          bindfocus="handlePayAmtFocus" input="{{ payAmt }}"
+        ></input>
+
+      </view>
+      <view class="charge-ctx__desc">
+        <icon class="icon-box-img" type="info" size="16" style="position:relative; top: -1px;"></icon>
+        暂不支持余额取现，请合理设置充值金额
+      </view>
+    </view>
+
+    <view class="ev-play__submit">
+      <button type="primary" bindtap="requestPlayParams">微信充值</button>
+    </view>
+  </view>
+</view>

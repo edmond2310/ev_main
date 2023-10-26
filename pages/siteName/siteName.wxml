@@ -1,0 +1,23 @@
+<!--about.wxml-->
+<view class="container container-bind">
+
+  <view class="bg-white" style="margin-top: 8px;">
+
+    <view class="no-arrow weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+      <view class="weui-cell__hd">
+        <label class="weui-label" style="width: 5em"> 站点名称 </label>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-select">
+          <input type="text" placeholder="请输入站点名称" model:value="{{ stationName }}" />
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="ev-site__new">
+    <button type="primary" bindtap="editStation">
+      保存
+    </button>
+  </view>
+</view>

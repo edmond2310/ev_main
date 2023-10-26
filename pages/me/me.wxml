@@ -1,0 +1,79 @@
+<!--logs.wxml-->
+<view class="container container-list">
+
+  <view class="ev-me__avatar bg-white">
+    <view aria-hidden="true" class="weui-media-box__hd">
+      <image class="weui-media-box__thumb" src="{{ userInfo.avatarUrl }}" alt></image>
+    </view>
+
+    <view aria-hidden="true" id="js_p1m1_bd" class="weui-media-box__bd">
+      <text class="weui-media-box__title">用户编号：{{ userInfo.id }}</text>
+    </view>
+  </view>
+
+  <view class="ev-me__wallet">
+    <view class="ev-me__select bg-white">
+      <navigator url="{{ '/pages/wallet/wallet?balance=' + balance }}">
+        <view
+          class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after"
+        >
+          <view class="weui-cell__hd">
+            <label class="weui-label" style="width: 5em">我的钱包</label>
+          </view>
+          <view class="weui-cell__bd">
+            <view class="weui-select">{{ balance }}</view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+  <view>
+    <view class="ev-me__select bg-white">
+      <!-- <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+        <view class="weui-cell__hd">
+          <label class="weui-label" style="width: 5em">联系客服</label>
+        </view>
+        <view class="weui-cell__bd">
+          <navigator url="/pages/service/service">
+            <view class="weui-select"></view>
+          </navigator>
+        </view>
+      </view> -->
+
+      <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+        <view class="weui-cell__hd">
+          <label class="weui-label" style="width: 5em">关于我们</label>
+        </view>
+        <view class="weui-cell__bd">
+          <!-- <navigator url="/pages/about/about"> -->
+          <view class="weui-select" bindtap="navToAbout"></view>
+          <!-- </navigator> -->
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+        <view class="weui-cell__hd">
+          <label class="weui-label" style="width: 5em">联系我们</label>
+        </view>
+        <view class="weui-cell__bd">
+          <!-- <navigator url="/pages/about/about"> -->
+          <view class="weui-select" bindtap="navToContact"></view>
+          <!-- </navigator> -->
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+        <view class="weui-cell__hd">
+          <label class="weui-label" style="width: 5em">站点管理</label>
+        </view>
+        <view class="weui-cell__bd">
+          <!-- <navigator url="/pages/site/site"> -->
+          <view class="weui-select" bindtap="navToSite"></view>
+          <!-- </navigator> -->
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>

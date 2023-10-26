@@ -1,0 +1,46 @@
+/**index.wxss**/
+page {
+  background-color: #f8f8f8;
+  color: #555555;
+}
+
+.container-bill {
+  padding-bottom: 88px;
+}
+
+.bill-item {
+  margin-bottom: 12px;
+}
+
+.weui-form-preview__bd {
+  line-height: 1.65;
+}
+
+.weui-form-preview__hd {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.finish {
+  color: rgb(7, 193, 96);
+}
+
+.finish .weui-form-preview__label,
+.finish .weui-form-preview__value {
+  color: rgb(7, 193, 96);
+}
+
+.empty-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 20px;
+  margin-top: 32px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.empty-block .icon-box-ctn {
+  margin-left: 4px;
+}

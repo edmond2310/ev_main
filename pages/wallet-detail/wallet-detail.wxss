@@ -1,0 +1,37 @@
+/**index.wxss**/
+page {
+  background-color: #f8f8f8;
+  color: #555555;
+}
+
+.container-wallet-detail {
+  padding-bottom: 88px;
+}
+
+.wallet-detail-item {
+  margin-bottom: 16px;
+}
+
+.weui-form-preview__bd {
+  line-height: 1.65;
+}
+
+.weui-form-preview__value {
+  /* text-align: left; */
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.empty-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 20px;
+  margin-top: 32px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.empty-block .icon-box-ctn {
+  margin-left: 4px;
+}

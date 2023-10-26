@@ -1,0 +1,4 @@
+<!--about.wxml-->
+<view class="container">
+  <image style="display: block; width: 100%;" src="https://charger-device-ota.oss-cn-shenzhen.aliyuncs.com/contact.jpeg" mode="widthFix"></image>
+</view>
